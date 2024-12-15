@@ -1,7 +1,7 @@
 // backend/api/graphql.js
 import { ApolloServer } from 'apollo-server-micro';
 import typeDefs from '../src/schema/typeDefs.js';
-import { getMovie, getPopularMovies, getMoviesRecomendations, getMoviesGenres } from '../src/services/tmdbService.js'; // Ajuste para o caminho correto
+import { getMovie, getPopularMovies, getMoviesRecomendations, getMoviesGenres } from '../src/services/tmdbService.js';
 
 const resolvers = {
   Query: {
@@ -25,5 +25,11 @@ const server = new ApolloServer({
   resolvers,
 });
 
-// Essa linha cria a função serverless para ser executada no Vercel
+// Exporte a função do ApolloServer configurada para ser usada como API no Vercel
+export const config = {
+  api: {
+    bodyParser: false, // Necessário para o ApolloServer com o Vercel
+  },
+};
+
 export default server.createHandler({ path: '/api/graphql' });
