@@ -4,9 +4,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node api/index.js",
-    "build": "vercel build",
-    "start": "node src/index.js"
+    "dev": "node src/index.js",   
+    "build": "pnpm run build"    
   },
   "keywords": [],
   "author": "",
