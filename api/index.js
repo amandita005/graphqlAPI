@@ -24,12 +24,9 @@ const server = new ApolloServer({
   resolvers,
 });
 
+
+
 server.listen().then(({ url }) => {
   console.log(`Server ready at ${url}`);
 });
 
-export default (req, res) => {
-  return server.createHandler({
-    path: '/api/graphql', // Define a URL da API GraphQL
-  })(req, res);
-};
