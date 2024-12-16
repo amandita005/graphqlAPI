@@ -24,5 +24,4 @@ const server = new ApolloServer({
   resolvers,
 });
 
-// O Vercel espera uma função exportada como handler para funcionar corretamente
 export default server.createHandler({ path: '/api/graphql' });
